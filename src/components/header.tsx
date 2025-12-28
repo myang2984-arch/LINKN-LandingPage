@@ -1,4 +1,4 @@
-import { Link2 } from 'lucide-react';
+import linknLogo from 'figma:asset/3ecfadc073d815416152e0594c981c1696c540cb.png';
 
 export function Header() {
   const scrollToSignup = () => {
@@ -11,9 +11,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
-              <Link2 size={18} className="text-white" />
-            </div>
+            <img src={linknLogo} alt="Linkn Logo" className="w-8 h-8 rounded-xl" />
             <span className="text-gray-900">linkn</span>
           </div>
 

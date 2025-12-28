@@ -6,5 +6,12 @@ service cloud.firestore {
       allow create: if true;
       allow read, update, delete: if false;
     }
+    
+    // Allow anyone to read and update feature likes
+    match /featureLikes/{document} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+    }
   }
 }
