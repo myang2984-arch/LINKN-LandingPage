@@ -155,6 +155,7 @@ export function Hero() {
             <motion.div
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.3 }}
+              className="max-w-md mx-auto lg:mx-0"
             >
               <video
                 src="/demo.mp4"
@@ -162,7 +163,8 @@ export function Hero() {
                 loop
                 muted
                 playsInline
-                className="relative rounded-2xl shadow-2xl w-full"
+                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
+                style={{ maxHeight: '600px' }}
               />
             </motion.div>
           </motion.div>
