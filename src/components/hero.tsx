@@ -38,7 +38,7 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div 
             className="space-y-8"
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,6 @@ export function Hero() {
             <motion.div
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.3 }}
-              className="max-w-md mx-auto lg:mx-0"
             >
               <video
                 src="/demo.mp4"
@@ -163,8 +162,7 @@ export function Hero() {
                 loop
                 muted
                 playsInline
-                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
-                style={{ maxHeight: '600px' }}
+                className="relative rounded-2xl shadow-2xl w-full h-auto"
               />
             </motion.div>
           </motion.div>
