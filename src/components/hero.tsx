@@ -1,5 +1,4 @@
 import { ArrowRight, Apple, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'framer-motion';
 
 export function Hero() {
@@ -157,9 +156,12 @@ export function Hero() {
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.3 }}
             >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop"
-                alt="iPhone with linkn app"
+              <video
+                src="/demo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="relative rounded-2xl shadow-2xl w-full"
               />
             </motion.div>
