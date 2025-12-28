@@ -134,13 +134,13 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            className="relative"
+          <motion.div
+            className="relative max-w-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div 
+            <motion.div
               className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl blur-3xl opacity-20"
               animate={{
                 scale: [1, 1.1, 1],
