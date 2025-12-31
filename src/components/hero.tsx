@@ -157,7 +157,7 @@ export function Hero() {
               transition={{ duration: 0.3 }}
             >
               <video
-                src="/demo.mp4"
+                src="/demo.webm"
                 autoPlay
                 loop
                 muted
