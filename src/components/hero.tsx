@@ -141,6 +141,18 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl blur-3xl opacity-20"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ duration: 0.3 }}
             >
