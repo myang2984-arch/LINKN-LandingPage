@@ -38,8 +38,8 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <motion.div 
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
             className="space-y-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,36 +135,38 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="relative max-w-sm mt-4 ml-auto"
+            className="relative flex items-center justify-center w-full"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl blur-3xl opacity-20"
-              animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <video
-                src="/demo.webm"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative rounded-2xl shadow-2xl w-full h-auto"
+            <div className="relative max-w-sm w-full">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl blur-3xl opacity-20"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               />
-            </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <video
+                  src="/demo.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="relative rounded-2xl shadow-2xl w-full h-auto"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
