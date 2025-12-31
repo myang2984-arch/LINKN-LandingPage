@@ -135,7 +135,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="relative max-w-sm mt-4"
+            className="relative max-w-sm mt-4 ml-auto"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
