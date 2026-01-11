@@ -73,17 +73,26 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               <li><strong>Timestamps:</strong> Link creation and last modification times</li>
             </ul>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.4 Device Information</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.4 Automatically Collected Technical Information</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
-              <li><strong>Device Type:</strong> iOS, Android, or desktop platform information (used only for debugging and optimizing user experience)</li>
-              <li><strong>App Version:</strong> Used for compatibility checks</li>
+              <li><strong>Firebase Analytics Auto-Collection:</strong> Google Firebase SDK may automatically collect basic technical information (such as device type, operating system version, app version) for service analytics and optimization</li>
+              <li><strong>Purchase Records:</strong> When you make in-app purchases, we record the platform type (iOS/Android) for order management</li>
+              <li><strong>Data Processing:</strong> This information is automatically processed by Firebase; we do not actively access, store, or use it for other purposes</li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.5 Clipboard Content (with consent)</h3>
-            <ul className="text-gray-700 space-y-2">
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
               <li><strong>Clipboard Text or URLs:</strong> When you opt in, the iOS/macOS app briefly reads the current clipboard after you reopen Linkn to detect whether you recently copied a link.</li>
               <li><strong>Share Extension Payloads:</strong> When you save from another app via the Share Extension, the extension writes the link payload to a private UIPasteboard entry so the main app can pick it up.</li>
               <li><strong>Storage:</strong> Clipboard text stays in memory only long enough to detect a URL and is not uploaded or persisted unless you confirm the save.</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.6 Email Subscription Information (Optional)</h3>
+            <ul className="text-gray-700 space-y-2">
+              <li><strong>Email Address:</strong> When you opt-in to subscribe, we collect your email address</li>
+              <li><strong>Purpose:</strong> Used solely to send you discount codes and subscription-related notifications</li>
+              <li><strong>Voluntary:</strong> Subscription is completely voluntary and you can unsubscribe at any time</li>
+              <li><strong>Unsubscribe:</strong> Each email includes an unsubscribe link for instant opt-out</li>
             </ul>
           </section>
 
@@ -115,13 +124,24 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               <li>You can revoke clipboard access anytime via <strong>Settings → Privacy & Clipboard</strong></li>
             </ul>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.4 Customer Support</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.4 Discount Codes and Notifications (Optional)</h3>
+            <p className="text-gray-700 mb-3">After you explicitly consent to subscribe, we will send you emails containing:</p>
+            <ul className="text-gray-700 mb-2 space-y-2 ml-4">
+              <li>Discount codes and special offers</li>
+              <li>Subscription-related important notifications</li>
+            </ul>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li>Every email includes a one-click unsubscribe link that takes effect immediately</li>
+              <li>We will not use your email address for any other purposes or share it with third parties</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.5 Customer Support</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
               <li>Respond to your inquiries and resolve technical issues</li>
               <li>Diagnose and fix application errors</li>
             </ul>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.5 Service Improvement</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.6 Service Improvement</h3>
             <ul className="text-gray-700 space-y-2">
               <li>Analyze app usage patterns to improve user experience (using only anonymized aggregate data)</li>
               <li>Develop new features and optimize existing functionality</li>
