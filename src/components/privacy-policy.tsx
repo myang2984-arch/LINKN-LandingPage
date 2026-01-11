@@ -18,7 +18,7 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             <span className="text-sm">Back</span>
           </button>
           <h1 className="text-gray-900 mb-2 text-3xl sm:text-4xl">Privacy Policy</h1>
-          <p className="text-gray-600 text-sm sm:text-base">Last updated: November 12, 2025</p>
+          <p className="text-gray-600 text-sm sm:text-base">Last updated: December 28, 2025</p>
         </div>
       </div>
 
@@ -27,19 +27,19 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
         <article className="prose prose-gray max-w-none">
           {/* Meta Info */}
           <div className="text-sm text-gray-600 mb-8 sm:mb-12 space-y-1">
-            <p><strong>Application Name:</strong> Linkn App</p>
+            <p><strong>Application Name:</strong> Linkn</p>
             <p><strong>Developer:</strong> Miya.Yang</p>
-            <p><strong>Effective Date:</strong> November 11, 2025</p>
+            <p><strong>Effective Date:</strong> December 28, 2025</p>
           </div>
 
           {/* Introduction */}
           <section className="mb-8 sm:mb-12">
             <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">Introduction</h2>
             <p className="text-gray-700 mb-4">
-              Thank you for using Linkn App. We are committed to protecting your personal privacy and data security. This Privacy Policy details how we collect, use, store, and protect your personal information.
+              Thank you for using Linkn. We are committed to protecting your personal privacy and data security. This Privacy Policy details how we collect, use, store, and protect your personal information.
             </p>
             <p className="text-gray-700">
-              By using Linkn App, you consent to the data collection and usage practices described in this Privacy Policy.
+              By using Linkn, you consent to the data collection and usage practices described in this Privacy Policy.
             </p>
           </section>
 
@@ -59,9 +59,9 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.2 Notion Integration Information</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
-              <li><strong>Notion Authorization Token:</strong> Encrypted token authorized by you to access your Notion database</li>
+              <li><strong>Notion Authorization Token:</strong> Token authorized by you to access your Notion database</li>
               <li><strong>Notion Database ID:</strong> Identifier of your chosen Notion database for synchronization</li>
-              <li>This token is stored securely in Firebase Firestore and used by Cloud Functions to perform synchronization</li>
+              <li>This token is stored in Firebase Firestore and used by Cloud Functions to perform synchronization</li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.3 Link Metadata</h3>
@@ -79,10 +79,11 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               <li><strong>App Version:</strong> Used for compatibility checks</li>
             </ul>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.5 Usage Data (Optional)</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">1.5 Clipboard Content (with consent)</h3>
             <ul className="text-gray-700 space-y-2">
-              <li><strong>Crash Reports:</strong> Anonymous technical information when the app crashes (requires user consent)</li>
-              <li><strong>Performance Data:</strong> App loading times and response speeds (anonymized)</li>
+              <li><strong>Clipboard Text or URLs:</strong> When you opt in, the iOS/macOS app briefly reads the current clipboard after you reopen Linkn to detect whether you recently copied a link.</li>
+              <li><strong>Share Extension Payloads:</strong> When you save from another app via the Share Extension, the extension writes the link payload to a private UIPasteboard entry so the main app can pick it up.</li>
+              <li><strong>Storage:</strong> Clipboard text stays in memory only long enough to detect a URL and is not uploaded or persisted unless you confirm the save.</li>
             </ul>
           </section>
 
@@ -95,7 +96,7 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.1 Account Management</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
-              <li>Verify your identity and manage your Linkn App account</li>
+              <li>Verify your identity and manage your Linkn account</li>
               <li>Synchronize your account information across multiple devices</li>
             </ul>
 
@@ -106,11 +107,12 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               <li>Store your links, tags, and reading status</li>
             </ul>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.3 AI Processing (Paid Feature)</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.3 Clipboard Quick-Add</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
-              <li>Use your link metadata to call Google Gemini API</li>
-              <li>Provide intelligent tag suggestions and content summarization services</li>
-              <li>This is an optional paid feature requiring your explicit consent</li>
+              <li>After you grant in-app consent, Linkn checks your clipboard on resume to see whether you just copied a URL</li>
+              <li>The permission dialog appears right after your first successful login, and you can decline without impacting other features</li>
+              <li>If a link is detected, we prompt you to save it; nothing is stored if you decline</li>
+              <li>You can revoke clipboard access anytime via <strong>Settings → Privacy & Clipboard</strong></li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.4 Customer Support</h3>
@@ -120,6 +122,10 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">2.5 Service Improvement</h3>
+            <ul className="text-gray-700 space-y-2">
+              <li>Analyze app usage patterns to improve user experience (using only anonymized aggregate data)</li>
+              <li>Develop new features and optimize existing functionality</li>
+            </ul>
           </section>
 
           {/* 3. Information Sharing and Third-Party Services */}
@@ -129,16 +135,16 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">3.1 Third-Party Services We Use</h3>
 
             <div className="mb-6">
-              <h4 className="text-gray-900 mb-2">Google Firebase</h4>
+              <h4 className="text-gray-900 mb-2 font-semibold">Google Firebase</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li><strong>Purpose:</strong> Identity authentication, cloud data storage, real-time synchronization</li>
-                <li><strong>Data:</strong> User UID, email, link metadata, Notion Token (encrypted)</li>
+                <li><strong>Data:</strong> User UID, email, link metadata, Notion Token</li>
                 <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Firebase Privacy Policy</a></li>
               </ul>
             </div>
 
             <div className="mb-6">
-              <h4 className="text-gray-900 mb-2">Notion API</h4>
+              <h4 className="text-gray-900 mb-2 font-semibold">Notion API</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li><strong>Purpose:</strong> Synchronize links to your Notion database</li>
                 <li><strong>Data:</strong> Link URLs, titles, descriptions, tags</li>
@@ -147,16 +153,7 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             </div>
 
             <div className="mb-6">
-              <h4 className="text-gray-900 mb-2">Google Gemini API (Optional Paid Feature)</h4>
-              <ul className="text-gray-700 space-y-1 text-sm">
-                <li><strong>Purpose:</strong> AI-powered summaries and tag suggestions</li>
-                <li><strong>Data:</strong> Link URLs and metadata (excluding user identity information)</li>
-                <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google AI Privacy Policy</a></li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-gray-900 mb-2">Apple Sign In (iOS Users)</h4>
+              <h4 className="text-gray-900 mb-2 font-semibold">Apple Sign In (iOS Users)</h4>
               <ul className="text-gray-700 space-y-1 text-sm">
                 <li><strong>Purpose:</strong> Identity authentication</li>
                 <li><strong>Data:</strong> Email address or anonymous email (user's choice)</li>
@@ -180,21 +177,20 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
               <li><strong>Cloud Storage:</strong> All user data is stored in Google Firebase Cloud Firestore databases</li>
               <li><strong>Data Centers:</strong> Located in Google Cloud's United States region servers</li>
-              <li><strong>Local Storage:</strong> Link metadata is encrypted and stored on devices using SQLite</li>
+              <li><strong>Local Storage:</strong> Link metadata is stored on devices using SQLite</li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">4.2 Security Measures</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
               <li><strong>Encrypted Transmission:</strong> All data transmission uses HTTPS/TLS encryption</li>
-              <li><strong>Token Encryption:</strong> Notion Tokens are encrypted before storage</li>
               <li><strong>Access Control:</strong> Firestore security rules ensure only you can access your own data</li>
-              <li><strong>Authentication:</strong> Multi-factor authentication support based on Firebase Authentication</li>
+              <li><strong>Authentication:</strong> User accounts are secured using Firebase Authentication (email/password + Google/Apple sign-in)</li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">4.3 Data Retention Period</h3>
             <ul className="text-gray-700 space-y-2">
               <li><strong>Active Accounts:</strong> Data will be retained until you delete your account or data</li>
-              <li><strong>Inactive Accounts:</strong> Account data that has not been logged into for more than 2 years will be automatically deleted (with 30 days advance email notification)</li>
+              <li><strong>Linked Notion Content:</strong> Items already synced to your own Notion workspace stay there under your control; deleting your Linkn account does not remove Notion data automatically</li>
             </ul>
           </section>
 
@@ -206,7 +202,7 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             </p>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.1 Right to Access</h3>
-            <p className="text-gray-700 mb-4 sm:mb-6">You can view and export all your data within the app at any time</p>
+            <p className="text-gray-700 mb-4 sm:mb-6">You can view all your data within the app at any time</p>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.2 Right to Rectification</h3>
             <p className="text-gray-700 mb-4 sm:mb-6">You can edit and update your link information and account settings within the app</p>
@@ -214,43 +210,192 @@ export function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.3 Right to Deletion</h3>
             <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
               <li>You can delete individual links or your entire account at any time</li>
-              <li>After account deletion, all associated data will be permanently deleted from our servers within 30 days</li>
+              <li>Once you confirm account deletion, your cloud data is erased immediately and cannot be recovered</li>
             </ul>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.4 Right to Data Portability</h3>
-            <p className="text-gray-700 mb-4 sm:mb-6">You can export all your link data in JSON or CSV format</p>
+            <p className="text-gray-700 mb-4 sm:mb-6">You may request an export of your link data by contacting us at <strong>myang2984@gmail.com</strong></p>
 
             <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.5 Right to Object</h3>
-            <p className="text-gray-700 mb-4 sm:mb-6">You can opt out of optional data collection features (such as crash reports, AI features)</p>
+            <p className="text-gray-700 mb-4 sm:mb-6">You can opt out of optional processing activities, including clipboard quick-add and any future analytics</p>
 
-            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.6 How to Exercise These Rights</h3>
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.6 Clipboard Consent Control</h3>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li>You can opt in or out of clipboard quick-add at any time inside the app's Settings page</li>
+              <li>Disabling clipboard access stops Linkn from reading your clipboard until you re-enable it</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">5.7 How to Exercise These Rights</h3>
+            <p className="text-gray-700">Please contact us via email: <strong>myang2984@gmail.com</strong></p>
           </section>
 
-          {/* 6. Children's Privacy Protection */}
+          {/* 6. Data Retention and Deletion */}
           <section className="mb-8 sm:mb-12">
-            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">6. Children's Privacy Protection</h2>
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">6. Data Retention and Deletion</h2>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">6.1 Account Deletion Process</h3>
+            <p className="text-gray-700 mb-3">If you choose to delete your Linkn account:</p>
+            <ol className="text-gray-700 mb-4 sm:mb-6 space-y-2 list-decimal list-inside">
+              <li><strong>Immediate Deletion:</strong> Firebase Authentication records, Firestore documents, and local SQLite caches are erased right away after you confirm deletion.</li>
+              <li><strong>Irreversible:</strong> The data removal cannot be undone. If you reopen Linkn, you will need to create a new account.</li>
+            </ol>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">6.2 Scope of Deletion</h3>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li><strong>Included:</strong> Email address, Notion Token, all link metadata stored in Linkn, tags, reading status</li>
+              <li><strong>Not Included:</strong> Items that have already been synchronized to your personal Notion workspace. You remain in control of those entries and must delete them in Notion if needed.</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">6.3 Data Backup</h3>
+            <ul className="text-gray-700 space-y-2">
+              <li>We recommend backing up any needed data before deleting your account</li>
+              <li>Data cannot be recovered after deletion</li>
+            </ul>
+          </section>
+
+          {/* 7. Children's Privacy Protection */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">7. Children's Privacy Protection</h2>
             <p className="text-gray-700 mb-4">
-              Linkn App is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and discover that your child has provided us with personal information without your consent, please contact us and we will immediately delete such information.
+              Linkn is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and discover that your child has provided us with personal information without your consent, please contact us and we will immediately delete such information.
             </p>
             <p className="text-gray-700">
               <strong>Complies with COPPA (Children's Online Privacy Protection Act) requirements.</strong>
             </p>
           </section>
 
-          {/* 7. Contact Us */}
+          {/* 8. International Data Transfers */}
           <section className="mb-8 sm:mb-12">
-            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">7. Contact Us</h2>
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">8. International Data Transfers</h2>
             <p className="text-gray-700 mb-4">
-              If you have any questions, comments, or complaints about this Privacy Policy, please contact us:
+              Linkn uses Firebase servers located in the United States. If you are located in the European Economic Area (EEA), United Kingdom, or other regions, your data may be transferred to locations outside your jurisdiction.
             </p>
             <p className="text-gray-700">
-              <strong>Email:</strong> <a href="mailto:myang2984@gmail.com" className="text-blue-600 hover:text-blue-700 underline">myang2984@gmail.com</a><br />
-              <strong>Response Time:</strong> We will respond to your inquiry within 7 business days
+              We ensure such transfers comply with applicable data protection laws and employ appropriate safeguards (such as Standard Contractual Clauses).
             </p>
           </section>
 
-          <div className="pt-8 border-t border-gray-200 text-sm text-gray-500">
-            For data protection-related complaints, you may also contact your local data protection supervisory authority.
+          {/* 9. Cookies and Tracking Technologies */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">9. Cookies and Tracking Technologies</h2>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">9.1 Technologies We Use</h3>
+            <p className="text-gray-700 mb-4 sm:mb-6">Uses SharedPreferences and SQLite to store user preference settings and link data</p>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">9.2 Technologies We Do NOT Use</h3>
+            <ul className="text-gray-700 space-y-2">
+              <li><strong>Advertising Tracking:</strong> Does not use advertising IDs or cross-app tracking</li>
+              <li><strong>Third-Party Cookies:</strong> Does not use third-party advertising or analytics cookies</li>
+            </ul>
+          </section>
+
+          {/* 10. Changes to Privacy Policy */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">10. Changes to Privacy Policy</h2>
+            <p className="text-gray-700 mb-4">We may update this Privacy Policy from time to time. When changes occur:</p>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">Notification Methods</h3>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li>In-app notification popup</li>
+              <li>Notification sent to registered email</li>
+              <li>Update of "Last Updated" date on this page</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">Material Changes</h3>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li>For material changes, we will notify you 30 days in advance</li>
+              <li>You may choose to accept the new policy or delete your account</li>
+            </ul>
+
+            <h3 className="text-gray-900 mb-2 sm:mb-3 text-base sm:text-lg">Effective Date</h3>
+            <ul className="text-gray-700 space-y-2">
+              <li>Changes will take effect 30 days after publication</li>
+              <li>Continued use of the service indicates acceptance of the new policy</li>
+            </ul>
+          </section>
+
+          {/* 11. California Residents Special Notice (CCPA) */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">11. California Residents Special Notice (CCPA)</h2>
+            <p className="text-gray-700 mb-4">
+              If you are a California resident, under the California Consumer Privacy Act (CCPA), you have the following additional rights:
+            </p>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li><strong>Right to Know:</strong> Learn about the categories and specific personal information we collect</li>
+              <li><strong>Right to Delete:</strong> Request deletion of your personal information</li>
+              <li><strong>Right to Opt-Out:</strong> Opt out of the sale of your personal information (we do not sell user data)</li>
+              <li><strong>Right to Non-Discrimination:</strong> Exercise privacy rights without discriminatory treatment</li>
+            </ul>
+            <p className="text-gray-700">To exercise these rights, please contact: <strong>myang2984@gmail.com</strong></p>
+          </section>
+
+          {/* 12. EU Residents Special Notice (GDPR) */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">12. EU Residents Special Notice (GDPR)</h2>
+            <p className="text-gray-700 mb-4">
+              If you are an EU resident, under the General Data Protection Regulation (GDPR), our legal basis for processing your data is:
+            </p>
+            <ul className="text-gray-700 mb-4 sm:mb-6 space-y-2">
+              <li><strong>Contract Performance:</strong> To provide you with Linkn services</li>
+              <li><strong>Legitimate Interests:</strong> To improve services and prevent fraud</li>
+              <li><strong>Consent:</strong> Optional features (such as clipboard quick-add) require your explicit consent</li>
+            </ul>
+            <p className="text-gray-700">
+              You may withdraw consent (for example, clipboard quick-add) at any time without affecting core contract-based services.
+            </p>
+          </section>
+
+          {/* 13. Data Breach Notification */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">13. Data Breach Notification</h2>
+            <p className="text-gray-700 mb-4">
+              In the event of a data breach that may affect the security of your personal information, we will:
+            </p>
+            <ol className="text-gray-700 mb-4 sm:mb-6 space-y-2 list-decimal list-inside">
+              <li>Notify you via email within <strong>72 hours</strong> of discovering the breach</li>
+              <li>Explain the type and scope of data breached</li>
+              <li>Inform you of remedial measures we have taken</li>
+              <li>Provide recommendations for protective measures you can take</li>
+            </ol>
+          </section>
+
+          {/* 14. Contact Us */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">14. Contact Us</h2>
+            <p className="text-gray-700 mb-4">
+              If you have any questions, comments, or complaints about this Privacy Policy, please contact us:
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Email:</strong> <a href="mailto:myang2984@gmail.com" className="text-blue-600 hover:text-blue-700 underline">myang2984@gmail.com</a><br />
+              <strong>Response Time:</strong> We will respond to your inquiry within 7 business days
+            </p>
+            <p className="text-gray-700 text-sm">
+              For data protection-related complaints, you may also contact your local data protection supervisory authority.
+            </p>
+          </section>
+
+          {/* 15. Governing Law */}
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-gray-900 mb-3 sm:mb-4 text-xl sm:text-2xl">15. Governing Law</h2>
+            <p className="text-gray-700 mb-3">This Privacy Policy is governed by and construed in accordance with:</p>
+            <ul className="text-gray-700 mb-4 space-y-2">
+              <li>Personal Information Protection Law of the People's Republic of China</li>
+              <li>European Union General Data Protection Regulation (GDPR)</li>
+              <li>California Consumer Privacy Act (CCPA)</li>
+              <li>Children's Online Privacy Protection Act (COPPA)</li>
+            </ul>
+            <p className="text-gray-700">
+              In case of conflicting laws, the law providing stricter user privacy protection shall prevail.
+            </p>
+          </section>
+
+          <div className="pt-8 border-t border-gray-200">
+            <p className="text-gray-700 mb-4">
+              <strong>The latest version of this Privacy Policy will always be published here.</strong>
+            </p>
+            <p className="text-sm text-gray-500">
+              Last Updated: December 28, 2025
+            </p>
           </div>
         </article>
       </div>
