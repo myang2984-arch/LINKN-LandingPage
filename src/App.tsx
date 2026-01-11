@@ -9,21 +9,58 @@ import { Footer } from './components/footer';
 import { PrivacyPolicy } from './components/privacy-policy';
 import { TermsOfUse } from './components/terms-of-use';
 import { Support } from './components/support';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'support'>('home');
+  // Get initial view from URL path
+  const getInitialView = (): 'home' | 'privacy' | 'terms' | 'support' => {
+    const path = window.location.pathname;
+    if (path === '/privacy' || path === '/privacy-policy') return 'privacy';
+    if (path === '/terms' || path === '/terms-of-use') return 'terms';
+    if (path === '/support') return 'support';
+    return 'home';
+  };
+
+  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'support'>(getInitialView);
+
+  // Update URL when view changes
+  const navigateTo = (view: 'home' | 'privacy' | 'terms' | 'support') => {
+    setCurrentView(view);
+
+    // Update browser URL
+    const pathMap = {
+      'home': '/',
+      'privacy': '/privacy',
+      'terms': '/terms',
+      'support': '/support'
+    };
+
+    window.history.pushState({}, '', pathMap[view]);
+
+    // Scroll to top when navigating
+    window.scrollTo(0, 0);
+  };
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentView(getInitialView());
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   if (currentView === 'privacy') {
-    return <PrivacyPolicy onBack={() => setCurrentView('home')} />;
+    return <PrivacyPolicy onBack={() => navigateTo('home')} />;
   }
 
   if (currentView === 'terms') {
-    return <TermsOfUse onBack={() => setCurrentView('home')} />;
+    return <TermsOfUse onBack={() => navigateTo('home')} />;
   }
 
   if (currentView === 'support') {
-    return <Support onBack={() => setCurrentView('home')} />;
+    return <Support onBack={() => navigateTo('home')} />;
   }
 
   return (
@@ -35,7 +72,7 @@ export default function App() {
       <Pricing />
       <FinalCTA />
       <BetaSignup />
-      <Footer onNavigate={setCurrentView} />
+      <Footer onNavigate={navigateTo} />
     </div>
   );
 }
