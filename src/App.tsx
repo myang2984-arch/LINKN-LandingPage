@@ -4,7 +4,6 @@ import { HowItWorks } from './components/how-it-works';
 import { Features } from './components/features';
 import { Pricing } from './components/pricing';
 import { FinalCTA } from './components/final-cta';
-import { BetaSignup } from './components/beta-signup';
 import { Footer } from './components/footer';
 import { PrivacyPolicy } from './components/privacy-policy';
 import { TermsOfUse } from './components/terms-of-use';
@@ -71,7 +70,6 @@ export default function App() {
       <Features />
       <Pricing />
       <FinalCTA />
-      <BetaSignup />
       <Footer onNavigate={navigateTo} />
     </div>
   );

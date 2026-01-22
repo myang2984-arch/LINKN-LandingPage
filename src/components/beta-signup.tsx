@@ -1,23 +1,11 @@
 import { useState } from 'react';
-import { Mail, Smartphone, Star, CheckCircle2, Sparkles } from 'lucide-react';
+import { Mail, CheckCircle2, Sparkles } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const proFeatures = [
-  'Unlimited Auto-Sync',
-  'Multi-Database Distribution',
-  'Smart Tagging',
-  'Daily Digest',
-  'Team Collaboration',
-];
-
 export function BetaSignup() {
-  const [formData, setFormData] = useState({
-    email: '',
-    deviceType: 'iPhone',
-    interestedFeatures: [] as string[],
-  });
+  const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -26,26 +14,20 @@ export function BetaSignup() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+
     try {
       // Save to Firebase Firestore
-      await addDoc(collection(db, 'beta_signups'), {
-        email: formData.email,
-        deviceType: formData.deviceType,
-        interestedFeatures: formData.interestedFeatures,
+      await addDoc(collection(db, 'testflight_signups'), {
+        email: email,
         createdAt: serverTimestamp(),
       });
-      
+
       setSubmitted(true);
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({
-          email: '',
-          deviceType: 'iPhone',
-          interestedFeatures: [],
-        });
+        setEmail('');
       }, 3000);
     } catch (err) {
       console.error('Error saving to Firebase:', err);
@@ -53,15 +35,6 @@ export function BetaSignup() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const toggleFeature = (feature: string) => {
-    setFormData(prev => ({
-      ...prev,
-      interestedFeatures: prev.interestedFeatures.includes(feature)
-        ? prev.interestedFeatures.filter(f => f !== feature)
-        : [...prev.interestedFeatures, feature],
-    }));
   };
 
   if (submitted) {
@@ -111,21 +84,21 @@ export function BetaSignup() {
           >
             <CheckCircle2 size={40} className="text-white" />
           </motion.div>
-          <motion.h2 
+          <motion.h2
             className="text-gray-900 mb-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Application Submitted!
+            Successfully Submitted!
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-gray-600 text-xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Thank you for applying! We'll contact you via email soon.
+            We'll send the TestFlight link to your email soon.
           </motion.p>
         </motion.div>
       </section>
@@ -184,13 +157,13 @@ export function BetaSignup() {
             }}
           >
             <Sparkles size={16} className="text-purple-600" />
-            <span className="text-purple-600">Limited Beta Access</span>
+            <span className="text-purple-600">iOS TestFlight Beta</span>
           </motion.div>
           <h2 className="text-gray-900 mb-4">
-            Join the Beta
+            Get TestFlight Access
           </h2>
-          <p className="text-gray-600">
-            Fill out the form below and we'll prioritize your access to linkn
+          <p className="text-gray-600 text-lg">
+            Leave your email and we'll send you the TestFlight link
           </p>
         </motion.div>
 
@@ -202,14 +175,14 @@ export function BetaSignup() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* 邮箱 */}
+            {/* Email Input */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <label htmlFor="email" className="flex items-center gap-2 text-gray-700 mb-2">
+              <label htmlFor="email" className="flex items-center gap-2 text-gray-700 mb-2 font-medium">
                 <Mail size={18} className="text-purple-600" />
                 Email Address *
               </label>
@@ -217,88 +190,23 @@ export function BetaSignup() {
                 type="email"
                 id="email"
                 required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
               />
-              <p className="text-gray-500 mt-1">We'll send you a TestFlight invite via email</p>
-            </motion.div>
-
-            {/* 设备类型 */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <label className="flex items-center gap-2 text-gray-700 mb-3">
-                <Smartphone size={18} className="text-purple-600" />
-                Your Device Type *
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                {['iPhone', 'iPad'].map((device) => (
-                  <motion.button
-                    key={device}
-                    type="button"
-                    onClick={() => setFormData({ ...formData, deviceType: device })}
-                    className={`px-4 py-3 rounded-lg border-2 transition-all ${
-                      formData.deviceType === device
-                        ? 'border-purple-600 bg-purple-50 text-purple-600'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {device}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* 感兴趣的功能 */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <label className="flex items-center gap-2 text-gray-700 mb-3">
-                <Star size={18} className="text-purple-600" />
-                Which Pro features interest you most? (Select all that apply)
-              </label>
-              <div className="space-y-2">
-                {proFeatures.map((feature, index) => (
-                  <motion.label
-                    key={feature}
-                    className="flex items-center gap-3 p-4 rounded-lg border border-gray-200 hover:border-purple-300 cursor-pointer transition-all hover:shadow-md"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + index * 0.05 }}
-                    whileHover={{ x: 5 }}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={formData.interestedFeatures.includes(feature)}
-                      onChange={() => toggleFeature(feature)}
-                      className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
-                    />
-                    <span className="text-gray-700">{feature}</span>
-                  </motion.label>
-                ))}
-              </div>
+              <p className="text-gray-500 text-sm mt-2">We'll send you the TestFlight link to this email</p>
             </motion.div>
 
             <motion.button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group font-medium"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10">
-                {loading ? 'Submitting...' : 'Submit Application'}
+                {loading ? 'Submitting...' : 'Get TestFlight Link'}
               </span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700"
@@ -310,7 +218,7 @@ export function BetaSignup() {
 
             <AnimatePresence>
               {error && (
-                <motion.p 
+                <motion.p
                   className="text-center text-red-600"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -320,10 +228,6 @@ export function BetaSignup() {
                 </motion.p>
               )}
             </AnimatePresence>
-
-            <p className="text-center text-gray-500">
-              We'll send you a TestFlight invite within 1-2 weeks
-            </p>
           </form>
         </motion.div>
       </div>

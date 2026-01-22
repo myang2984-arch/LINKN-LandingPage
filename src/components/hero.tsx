@@ -1,10 +1,40 @@
 import { ArrowRight, Apple, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
 export function Hero() {
-  const scrollToSignup = () => {
-    const element = document.getElementById('beta-signup');
-    element?.scrollIntoView({ behavior: 'smooth' });
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      await addDoc(collection(db, 'testflight_signups'), {
+        email: email,
+        source: 'hero',
+        createdAt: serverTimestamp(),
+      });
+
+      setSubmitted(true);
+      setEmail('');
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      console.error('Error saving to Firebase:', err);
+      setError('Failed to submit. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -88,27 +118,57 @@ export function Hero() {
               One tap. Zero friction. Your links flow from any app into Notion — automatically organized, instantly accessible.
             </motion.p>
             
-            <motion.div 
-              className="flex flex-wrap gap-4"
+            <motion.div
+              className="space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <motion.button 
-                onClick={scrollToSignup}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg hover:shadow-xl transition-all flex items-center gap-2 relative overflow-hidden group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">Join Beta</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
+                <div className="flex-1">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    disabled={loading || submitted}
+                  />
+                </div>
+                <motion.button
+                  type="submit"
+                  disabled={loading || submitted}
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group whitespace-nowrap"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">
+                    {loading ? 'Sending...' : submitted ? '✓ Sent!' : 'Join Beta'}
+                  </span>
+                  {!loading && !submitted && (
+                    <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                  )}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+              </form>
+
+              <p className="text-gray-500 text-sm">
+                {submitted ? (
+                  <span className="text-green-600 font-medium">✓ We'll send you a TestFlight invitation link soon!</span>
+                ) : (
+                  "We'll send you a TestFlight invitation link"
+                )}
+              </p>
+
+              {error && (
+                <p className="text-red-600 text-sm">{error}</p>
+              )}
             </motion.div>
 
             <motion.div 
