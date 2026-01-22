@@ -6,7 +6,14 @@ service cloud.firestore {
       allow create: if true;
       allow read, update, delete: if false;
     }
-    
+
+    // Allow anyone to write to testflight_signups (for TestFlight invitations)
+    match /testflight_signups/{document} {
+      allow create: if true;
+      allow read, update: if false;
+      allow delete: if false;
+    }
+
     // Allow anyone to read and update feature likes
     match /featureLikes/{document} {
       allow read: if true;
