@@ -113,7 +113,7 @@ export function FinalCTA() {
                   <Sparkles className="w-6 h-6" />
                   <div>
                     <div className="text-2xl sm:text-3xl font-black leading-tight">LIFETIME 50% OFF</div>
-                    <div className="text-sm font-bold">First 100 Beta Users Only!</div>
+                    <div className="text-sm font-bold">First 200 Beta Users Only!</div>
                   </div>
                   <Sparkles className="w-6 h-6" />
                 </div>

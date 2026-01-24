@@ -219,7 +219,7 @@ exports.sendTestFlightInvitation = functions.firestore
       <p>Linkn helps you collect links from any platform and auto-syncs them directly to your Notion — keeping your "Read Later" list organized and actionable.</p>
 
       <div style="text-align: center;">
-        <span class="badge">🎁 LIFETIME 50% OFF - Beta Exclusive!</span>
+        <span class="badge">🎁 LIFETIME 50% OFF - First 200 Beta Users Only!</span>
       </div>
 
       <a href="${TESTFLIGHT_LINK}" class="cta-button">Download from TestFlight</a>
@@ -270,7 +270,7 @@ Linkn helps you collect links from any platform and auto-syncs them directly to 
 Get started here:
 ${TESTFLIGHT_LINK}
 
-🎁 As a beta tester, you'll get LIFETIME 50% OFF on our Pro plan!
+🎁 As a beta tester, you'll get LIFETIME 50% OFF on our Pro plan (First 200 users only)!
 
 Getting Started (3 steps):
 1. Click the link above to install Linkn
