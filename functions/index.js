@@ -107,9 +107,9 @@ exports.sendTestFlightInvitation = functions.firestore
       letter-spacing: -0.5px;
     }
     .header .logo {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 16px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
       display: block;
       margin-left: auto;
       margin-right: auto;
