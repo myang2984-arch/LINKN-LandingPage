@@ -106,10 +106,13 @@ exports.sendTestFlightInvitation = functions.firestore
       font-weight: 800;
       letter-spacing: -0.5px;
     }
-    .header .emoji {
-      font-size: 48px;
+    .header .logo {
+      width: 48px;
+      height: 48px;
       margin-bottom: 16px;
       display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .content {
       padding: 40px 32px;
@@ -203,7 +206,7 @@ exports.sendTestFlightInvitation = functions.firestore
   <div class="email-container">
     <!-- Header -->
     <div class="header">
-      <span class="emoji">🚀</span>
+      <img src="https://linkn.my/favicon.png" alt="Linkn" class="logo" />
       <h1>Welcome to Linkn Beta!</h1>
     </div>
 
