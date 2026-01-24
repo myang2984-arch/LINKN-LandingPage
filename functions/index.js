@@ -242,6 +242,14 @@ exports.sendTestFlightInvitation = functions.firestore
 
       <p style="margin-top: 32px;">Welcome to the journey!</p>
 
+      <div class="feature-box" style="margin-top: 32px; border-left-color: #2563eb;">
+        <strong>💬 Optional:</strong>
+        <p>
+          If you'd like to share feedback, ask questions, or follow beta updates, you're welcome to join our Discord:<br>
+          👉 <a href="https://discord.gg/YjgzhsY7" style="color: #7c3aed; text-decoration: none; font-weight: 600;">https://discord.gg/YjgzhsY7</a>
+        </p>
+      </div>
+
       <p style="margin-top: 24px; font-weight: 600;">
         Best,<br>
         Miya Yang<br>
@@ -281,6 +289,10 @@ A small favor:
 Since this is an early beta, things might not be perfect yet. If you find a bug or have a "what if it did this" idea, please let me know by replying to this email.
 
 Welcome to the journey!
+
+💬 Optional:
+If you'd like to share feedback, ask questions, or follow beta updates, you're welcome to join our Discord:
+👉 https://discord.gg/YjgzhsY7
 
 Best,
 Miya Yang
