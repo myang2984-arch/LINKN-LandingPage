@@ -107,12 +107,13 @@ exports.sendTestFlightInvitation = functions.firestore
       letter-spacing: -0.5px;
     }
     .header .logo {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       margin-bottom: 20px;
       display: block;
       margin-left: auto;
       margin-right: auto;
+      border-radius: 50%;
     }
     .content {
       padding: 40px 32px;
@@ -224,11 +225,15 @@ exports.sendTestFlightInvitation = functions.firestore
 
       <a href="${TESTFLIGHT_LINK}" class="cta-button">Download from TestFlight</a>
 
+      <p style="text-align: center; margin: 16px 0; font-size: 14px; color: #6b7280;">
+        Or click this link: <a href="${TESTFLIGHT_LINK}" style="color: #7c3aed; text-decoration: none; font-weight: 600;">${TESTFLIGHT_LINK}</a>
+      </p>
+
       <div class="feature-box">
         <strong>🎯 Getting Started (3 steps):</strong>
         <p>
           1. Tap the button above to install Linkn<br>
-          2. Connect your Notion account<br>
+          2. Connect your Notion database<br>
           3. Start saving links instantly! ⚡
         </p>
       </div>
@@ -282,7 +287,7 @@ ${TESTFLIGHT_LINK}
 
 Getting Started (3 steps):
 1. Click the link above to install Linkn
-2. Connect your Notion account
+2. Connect your Notion database
 3. Start saving links instantly! ⚡
 
 A small favor:
